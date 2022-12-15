@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D30942C42949F4EE005751BB /* SwiftUICalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D30942C32949F4EE005751BB /* SwiftUICalendar */; };
-		D31373ED294B56A400C519D0 /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31373EC294B56A400C519D0 /* DateValue.swift */; };
-		D31373EF294B56B400C519D0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31373EE294B56B400C519D0 /* Task.swift */; };
 		D31373F1294B56CE00C519D0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31373F0294B56CE00C519D0 /* CalendarView.swift */; };
 		D31373F3294B56E600C519D0 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31373F2294B56E600C519D0 /* CustomDatePicker.swift */; };
 		D31373F5294B56F900C519D0 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31373F4294B56F900C519D0 /* HomeView.swift */; };
@@ -17,11 +15,11 @@
 		D31B23CE29472E2600B869A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B23CD29472E2600B869A6 /* ContentView.swift */; };
 		D31B23D029472E2600B869A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D31B23CF29472E2600B869A6 /* Assets.xcassets */; };
 		D31B23D329472E2600B869A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D31B23D229472E2600B869A6 /* Preview Assets.xcassets */; };
+		D3706987294B57BE00B137DD /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3706986294B57BE00B137DD /* DateValue.swift */; };
+		D3706989294B57CB00B137DD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3706988294B57CB00B137DD /* Task.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D31373EC294B56A400C519D0 /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
-		D31373EE294B56B400C519D0 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D31373F0294B56CE00C519D0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D31373F2294B56E600C519D0 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		D31373F4294B56F900C519D0 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -30,6 +28,8 @@
 		D31B23CD29472E2600B869A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D31B23CF29472E2600B869A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D31B23D229472E2600B869A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D3706986294B57BE00B137DD /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
+		D3706988294B57CB00B137DD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,16 +54,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D31373EB294B569200C519D0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D31373EC294B56A400C519D0 /* DateValue.swift */,
-				D31373EE294B56B400C519D0 /* Task.swift */,
-			);
-			name = Model;
-			path = "New Group/Model";
-			sourceTree = "<group>";
-		};
 		D31B23BF29472E2600B869A6 = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +73,7 @@
 		D31B23CA29472E2600B869A6 /* MedicineTime */ = {
 			isa = PBXGroup;
 			children = (
-				D31373EB294B569200C519D0 /* Model */,
+				D3706985294B57A800B137DD /* Model */,
 				D31373E9294B568300C519D0 /* View */,
 				D31B23CB29472E2600B869A6 /* MedicineTimeApp.swift */,
 				D31B23CD29472E2600B869A6 /* ContentView.swift */,
@@ -99,6 +89,15 @@
 				D31B23D229472E2600B869A6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D3706985294B57A800B137DD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D3706986294B57BE00B137DD /* DateValue.swift */,
+				D3706988294B57CB00B137DD /* Task.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,10 +178,10 @@
 			files = (
 				D31373F1294B56CE00C519D0 /* CalendarView.swift in Sources */,
 				D31373F5294B56F900C519D0 /* HomeView.swift in Sources */,
-				D31373EF294B56B400C519D0 /* Task.swift in Sources */,
 				D31373F3294B56E600C519D0 /* CustomDatePicker.swift in Sources */,
-				D31373ED294B56A400C519D0 /* DateValue.swift in Sources */,
+				D3706987294B57BE00B137DD /* DateValue.swift in Sources */,
 				D31B23CE29472E2600B869A6 /* ContentView.swift in Sources */,
+				D3706989294B57CB00B137DD /* Task.swift in Sources */,
 				D31B23CC29472E2600B869A6 /* MedicineTimeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
