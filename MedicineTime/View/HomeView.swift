@@ -20,6 +20,14 @@ struct HomeView: View {
             .listStyle(.plain)
             .navigationTitle("복약")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                NavigationLink {
+                    AddMedicineView()
+                } label: {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color.black)
+                }
+            }
         }
     }
 }
