@@ -81,13 +81,23 @@ struct AddMedicineView: View {
                     }
                 }
             }
+            Button {
+                //
+            } label: {
+                Text("추가 or 수정")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal)
+                    .background(
+                        Color.blue
+                            .opacity(0.5)
+                            .cornerRadius(10)
+                    )
+                    .padding()
+            }
         }
-        Button {
-            //
-        } label: {
-            Text("추가")
-        }
-
+        
     }
 }
 
