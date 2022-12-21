@@ -15,16 +15,16 @@ struct SearchMedicineView: View {
     ]
     
     @State private var searchText = ""
-//    @StateObject var viewModel = SearchViewModel()
+    @StateObject var viewModel = SearchViewModel()
     
     var body: some View {
-        NavigationView {
+//        NavigationView {
             VStack {
-                SearchBar(text: $searchText)
+                SearchBar(text: $viewModel.searchText)
                     .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
                 
                 List {
-                    ForEach(array.filter{$0.hasPrefix(searchText) || searchText == ""}, id:\.self) {
+                    ForEach(array.filter{$0.hasPrefix(viewModel.searchText) || viewModel.searchText == ""}, id:\.self) {
                         searchText in Text(searchText)
                     }
                 }
@@ -35,7 +35,7 @@ struct SearchMedicineView: View {
             }
             .navigationBarTitle("검색")
             .navigationBarTitleDisplayMode(.inline)
-        }
+//        }
     }
 }
 
