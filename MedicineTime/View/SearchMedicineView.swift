@@ -8,34 +8,26 @@
 import SwiftUI
 
 struct SearchMedicineView: View {
-    let array = [
-        "김서근", "포뇨", "하울", "소피아", "캐시퍼", "소스케",
-        "치히로", "하쿠", "가오나시", "제니바", "카브", "마르클",
-        "토토로", "사츠키", "지브리", "스튜디오", "캐릭터", "Kim"
-    ]
     
-    @State private var searchText = ""
     @StateObject var viewModel = SearchViewModel()
     
     var body: some View {
-//        NavigationView {
-            VStack {
-                SearchBar(text: $viewModel.searchText)
-                    .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                
-                List {
-                    ForEach(array.filter{$0.hasPrefix(viewModel.searchText) || viewModel.searchText == ""}, id:\.self) {
-                        searchText in Text(searchText)
-                    }
-                }
-                .listStyle(PlainListStyle())
-                .onTapGesture {
-                    hideKeyboard()
+        VStack {
+            SearchBar(text: $viewModel.searchText)
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+            
+            List {
+                ForEach(viewModel.searchMedicineData, id: \.self) { data in
+                    Text(data.itemName ?? "이름 없음")
                 }
             }
-            .navigationBarTitle("검색")
-            .navigationBarTitleDisplayMode(.inline)
-//        }
+            .listStyle(PlainListStyle())
+            .onTapGesture {
+                hideKeyboard()
+            }
+        }
+        .navigationBarTitle("검색")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

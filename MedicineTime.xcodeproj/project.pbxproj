@@ -17,6 +17,13 @@
 		D31B23D329472E2600B869A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D31B23D229472E2600B869A6 /* Preview Assets.xcassets */; };
 		D3706987294B57BE00B137DD /* DateValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3706986294B57BE00B137DD /* DateValue.swift */; };
 		D3706989294B57CB00B137DD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3706988294B57CB00B137DD /* Task.swift */; };
+		D370698B294B59CD00B137DD /* AddMedicineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370698A294B59CD00B137DD /* AddMedicineView.swift */; };
+		D370698D294B5C8400B137DD /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370698C294B5C8400B137DD /* SearchBar.swift */; };
+		D370698F294B5E1300B137DD /* SearchMedicineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370698E294B5E1200B137DD /* SearchMedicineView.swift */; };
+		D3706992294B6DF900B137DD /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3706991294B6DF900B137DD /* BaseAPI.swift */; };
+		D3706995294B80C200B137DD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3706994294B80C200B137DD /* SearchViewModel.swift */; };
+		D370699B2951E36D00B137DD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370699A2951E36D00B137DD /* SettingView.swift */; };
+		D370699D2953223900B137DD /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370699C2953223900B137DD /* Medicine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +37,14 @@
 		D31B23D229472E2600B869A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3706986294B57BE00B137DD /* DateValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValue.swift; sourceTree = "<group>"; };
 		D3706988294B57CB00B137DD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		D370698A294B59CD00B137DD /* AddMedicineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMedicineView.swift; sourceTree = "<group>"; };
+		D370698C294B5C8400B137DD /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		D370698E294B5E1200B137DD /* SearchMedicineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMedicineView.swift; sourceTree = "<group>"; };
+		D3706991294B6DF900B137DD /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
+		D3706994294B80C200B137DD /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		D3706996294B8BA900B137DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D370699A2951E36D00B137DD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		D370699C2953223900B137DD /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +65,10 @@
 				D31373F0294B56CE00C519D0 /* CalendarView.swift */,
 				D31373F2294B56E600C519D0 /* CustomDatePicker.swift */,
 				D31373F4294B56F900C519D0 /* HomeView.swift */,
+				D370698A294B59CD00B137DD /* AddMedicineView.swift */,
+				D370698C294B5C8400B137DD /* SearchBar.swift */,
+				D370698E294B5E1200B137DD /* SearchMedicineView.swift */,
+				D370699A2951E36D00B137DD /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -73,6 +92,9 @@
 		D31B23CA29472E2600B869A6 /* MedicineTime */ = {
 			isa = PBXGroup;
 			children = (
+				D3706996294B8BA900B137DD /* Info.plist */,
+				D3706993294B80B200B137DD /* ViewModel */,
+				D3706990294B6DEF00B137DD /* API */,
 				D3706985294B57A800B137DD /* Model */,
 				D31373E9294B568300C519D0 /* View */,
 				D31B23CB29472E2600B869A6 /* MedicineTimeApp.swift */,
@@ -96,8 +118,25 @@
 			children = (
 				D3706986294B57BE00B137DD /* DateValue.swift */,
 				D3706988294B57CB00B137DD /* Task.swift */,
+				D370699C2953223900B137DD /* Medicine.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D3706990294B6DEF00B137DD /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D3706991294B6DF900B137DD /* BaseAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		D3706993294B80B200B137DD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D3706994294B80C200B137DD /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,8 +217,15 @@
 			files = (
 				D31373F1294B56CE00C519D0 /* CalendarView.swift in Sources */,
 				D31373F5294B56F900C519D0 /* HomeView.swift in Sources */,
+				D370698B294B59CD00B137DD /* AddMedicineView.swift in Sources */,
 				D31373F3294B56E600C519D0 /* CustomDatePicker.swift in Sources */,
 				D3706987294B57BE00B137DD /* DateValue.swift in Sources */,
+				D370698D294B5C8400B137DD /* SearchBar.swift in Sources */,
+				D3706995294B80C200B137DD /* SearchViewModel.swift in Sources */,
+				D370699D2953223900B137DD /* Medicine.swift in Sources */,
+				D3706992294B6DF900B137DD /* BaseAPI.swift in Sources */,
+				D370699B2951E36D00B137DD /* SettingView.swift in Sources */,
+				D370698F294B5E1300B137DD /* SearchMedicineView.swift in Sources */,
 				D31B23CE29472E2600B869A6 /* ContentView.swift in Sources */,
 				D3706989294B57CB00B137DD /* Task.swift in Sources */,
 				D31B23CC29472E2600B869A6 /* MedicineTimeApp.swift in Sources */,
@@ -314,6 +360,7 @@
 				DEVELOPMENT_TEAM = 9XD488YM8C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MedicineTime/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -346,6 +393,7 @@
 				DEVELOPMENT_TEAM = 9XD488YM8C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MedicineTime/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

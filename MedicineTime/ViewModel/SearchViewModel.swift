@@ -12,18 +12,21 @@ class SearchViewModel: ObservableObject {
     
     var cancellables = Set<AnyCancellable>()
     
+    @Published var searchMedicineData: [Item] = []
+    
     @Published var searchText = "" {
         didSet {
             print("didSet")
-            BaseAPI.shared.getApi()
+            BaseAPI.shared.getApi(self.searchText)
                 .sink { result in
                     print(result)
                 } receiveValue: { items in
                     print("items = \(items)")
+                    DispatchQueue.main.async {
+                        self.searchMedicineData = items                        
+                    }
                 }
                 .store(in: &cancellables)
-            
-            BaseAPI.shared.getDataTask()
         }
     }
 }
