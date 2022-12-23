@@ -42,8 +42,8 @@ struct AddMedicineView: View {
                         TextField("약 이름을 입력하세요", text: $medicineTitle)
                             .padding()
                         
-                        Button {
-                            // 약 검색 화면 추가
+                        NavigationLink {
+                            SearchMedicineView()
                         } label: {
                             Text("검색")
                         }
@@ -97,7 +97,7 @@ struct AddMedicineView: View {
                     .padding()
             }
         }
-        
+        .navigationTitle("약 추가 or 수정")
     }
 }
 
