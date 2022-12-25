@@ -24,6 +24,7 @@
 		D3706995294B80C200B137DD /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3706994294B80C200B137DD /* SearchViewModel.swift */; };
 		D370699B2951E36D00B137DD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370699A2951E36D00B137DD /* SettingView.swift */; };
 		D370699D2953223900B137DD /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370699C2953223900B137DD /* Medicine.swift */; };
+		D370699F2958B8FC00B137DD /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D370699E2958B8FC00B137DD /* APIKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		D3706996294B8BA900B137DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D370699A2951E36D00B137DD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		D370699C2953223900B137DD /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
+		D370699E2958B8FC00B137DD /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				D3706991294B6DF900B137DD /* BaseAPI.swift */,
+				D370699E2958B8FC00B137DD /* APIKeys.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				D370699D2953223900B137DD /* Medicine.swift in Sources */,
 				D3706992294B6DF900B137DD /* BaseAPI.swift in Sources */,
 				D370699B2951E36D00B137DD /* SettingView.swift in Sources */,
+				D370699F2958B8FC00B137DD /* APIKeys.swift in Sources */,
 				D370698F294B5E1300B137DD /* SearchMedicineView.swift in Sources */,
 				D31B23CE29472E2600B869A6 /* ContentView.swift in Sources */,
 				D3706989294B57CB00B137DD /* Task.swift in Sources */,
