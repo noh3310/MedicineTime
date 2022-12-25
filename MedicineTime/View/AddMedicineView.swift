@@ -28,6 +28,7 @@ struct AddMedicineView: View {
     @State var medicineTitle = ""
     @State var time: [MedicineTime] = [MedicineTime(hour: 1, minute: 20, ampm: .AM)]
     @State var count = 0
+    @State var date = Date()
     
     func add() {
         count += 1
@@ -37,10 +38,8 @@ struct AddMedicineView: View {
         VStack {
             ScrollView {
                 VStack {
-                    
                     HStack {
                         TextField("약 이름을 입력하세요", text: $medicineTitle)
-                            .padding()
                         
                         NavigationLink {
                             SearchMedicineView()
@@ -67,7 +66,8 @@ struct AddMedicineView: View {
                     
                     ForEach(0..<time.count, id: \.self) { index in
                         HStack {
-                            Text(time[index].time())
+                            DatePicker("", selection: $date, displayedComponents: .hourAndMinute)
+                                .fixedSize()
                             Spacer()
                             Button {
                                 self.time.remove(at: index)
