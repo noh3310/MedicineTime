@@ -24,7 +24,7 @@ struct ContentView: View {
                 }
 
 
-            Text("설정")
+            SettingView()
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("설정")
