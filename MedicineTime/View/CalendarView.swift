@@ -22,6 +22,14 @@ struct CalendarView: View {
             }
             .navigationTitle("복용 내역")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                NavigationLink {
+                    AddMedicineView()
+                } label: {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color.black)
+                }
+            }
         }
     }
 }

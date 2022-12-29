@@ -52,33 +52,10 @@ struct AddMedicineView: View {
                     HStack {
                         Text("복용 시간")
                         Spacer()
-                        Button {
-                            // 배열 추가
-                            time.append(MedicineTime(hour: 1, minute: count * 10, ampm: .AM))
-                            add()
-                        } label: {
-                            Image(systemName: "plus.circle")
-                                .foregroundColor(.blue)
-                                .font(.title)
-                        }
+                        DatePicker("", selection: $date)
+                            .fixedSize()
                     }
                     .padding()
-                    
-                    ForEach(0..<time.count, id: \.self) { index in
-                        HStack {
-                            DatePicker("", selection: $date, displayedComponents: .hourAndMinute)
-                                .fixedSize()
-                            Spacer()
-                            Button {
-                                self.time.remove(at: index)
-                            } label: {
-                                Image(systemName: "minus.circle")
-                                    .foregroundColor(.red)
-                                    .font(.title)
-                            }
-                        }
-                        .padding()
-                    }
                 }
             }
             Button {

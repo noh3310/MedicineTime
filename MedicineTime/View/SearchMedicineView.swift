@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SearchMedicineView: View {
     
+    @Environment(\.presentationMode) var presentation
+    
     @StateObject var viewModel = SearchViewModel()
     
     var body: some View {
@@ -19,6 +21,10 @@ struct SearchMedicineView: View {
             List {
                 ForEach(viewModel.searchMedicineData, id: \.self) { data in
                     Text(data.itemName ?? "이름 없음")
+                        .onTapGesture {
+                            self.viewModel.selectedMedicine = data
+                            presentation.wrappedValue.dismiss()
+                        }
                 }
             }
             .listStyle(PlainListStyle())
