@@ -30,6 +30,8 @@ struct AddMedicineView: View {
     @State var count = 0
     @State var date = Date()
     
+    @ObservedObject var viewModel = SearchViewModel()
+    
     func add() {
         count += 1
     }
@@ -39,10 +41,13 @@ struct AddMedicineView: View {
             ScrollView {
                 VStack {
                     HStack {
-                        TextField("약 이름을 입력하세요", text: $medicineTitle)
+                        Text(viewModel.selectedMedicine?.itemName ?? "약 추가하세요")
+//                        TextField("약 이름을 입력하세요", text: $viewModel.searchText)
+                        
+                        Spacer()
                         
                         NavigationLink {
-                            SearchMedicineView()
+                            SearchMedicineView(viewModel: viewModel)
                         } label: {
                             Text("검색")
                         }

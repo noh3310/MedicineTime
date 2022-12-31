@@ -15,6 +15,8 @@ class SearchViewModel: ObservableObject {
     @Published var selectedMedicine: Item? {
         didSet {
             self.searchText = selectedMedicine?.itemName ?? ""
+            print("searchText = \(searchText)")
+            
         }
     }
     
@@ -27,7 +29,7 @@ class SearchViewModel: ObservableObject {
                 .sink { result in
                     print(result)
                 } receiveValue: { items in
-                    print("items = \(items)")
+//                    print("items = \(items)")
                     DispatchQueue.main.async {
                         self.searchMedicineData = items                        
                     }

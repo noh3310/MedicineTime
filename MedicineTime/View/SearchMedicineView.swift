@@ -11,7 +11,7 @@ struct SearchMedicineView: View {
     
     @Environment(\.presentationMode) var presentation
     
-    @StateObject var viewModel = SearchViewModel()
+    @StateObject var viewModel: SearchViewModel
     
     var body: some View {
         VStack {
@@ -39,7 +39,7 @@ struct SearchMedicineView: View {
 
 struct SearchMedicineView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchMedicineView()
+        SearchMedicineView(viewModel: SearchViewModel())
     }
 }
 
