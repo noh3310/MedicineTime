@@ -7,42 +7,16 @@
 
 import SwiftUI
 
-enum AMPM: String {
-    case AM = "AM"
-    case PM = "PM"
-}
-
-struct MedicineTime {
-    var hour: Int
-    var minute: Int
-    var ampm: AMPM
-    var uuid = UUID()
-    
-    func time() -> String {
-        return "\(hour):\(minute) \(ampm.rawValue)"
-    }
-}
-
 struct AddMedicineView: View {
     
-    @State var medicineTitle = ""
-    @State var time: [MedicineTime] = [MedicineTime(hour: 1, minute: 20, ampm: .AM)]
-    @State var count = 0
-    @State var date = Date()
-    
     @ObservedObject var viewModel = SearchViewModel()
-    
-    func add() {
-        count += 1
-    }
     
     var body: some View {
         VStack {
             ScrollView {
                 VStack {
                     HStack {
-                        Text(viewModel.selectedMedicine?.itemName ?? "약 추가하세요")
-//                        TextField("약 이름을 입력하세요", text: $viewModel.searchText)
+                        Text(viewModel.selectedMedicine?.itemName ?? "약 검색해서 추가하세요")
                         
                         Spacer()
                         
@@ -57,7 +31,7 @@ struct AddMedicineView: View {
                     HStack {
                         Text("복용 시간")
                         Spacer()
-                        DatePicker("", selection: $date)
+                        DatePicker("", selection: $viewModel.medicineTime)
                             .fixedSize()
                     }
                     .padding()

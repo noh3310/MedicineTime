@@ -12,13 +12,8 @@ class SearchViewModel: ObservableObject {
     
     var cancellables = Set<AnyCancellable>()
     
-    @Published var selectedMedicine: Item? {
-        didSet {
-            self.searchText = selectedMedicine?.itemName ?? ""
-            print("searchText = \(searchText)")
-            
-        }
-    }
+    @Published var selectedMedicine: Item?
+    @Published var medicineTime = Date()
     
     @Published var searchMedicineData: [Item] = []
     
