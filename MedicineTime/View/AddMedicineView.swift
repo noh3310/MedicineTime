@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct AddMedicineView: View {
     
+    @Environment(\.presentationMode) var presentation
+    
     @ObservedObject var homeViewModel: HomeViewModel
     @ObservedObject var searchViewModel = SearchViewModel()
+    
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
@@ -40,7 +43,12 @@ struct AddMedicineView: View {
                 }
             }
             Button {
-                homeViewModel.addDate(medicineName: searchViewModel.selectedMedicine?.itemName ?? "정보 없음", date: searchViewModel.medicineTime)
+                if let itemName = searchViewModel.selectedMedicine?.itemName {
+                    homeViewModel.addDate(medicineName: itemName, date: searchViewModel.medicineTime)
+                    presentation.wrappedValue.dismiss()
+                } else {
+                    showingAlert = true
+                }
             } label: {
                 Text("추가")
                     .foregroundColor(.white)
@@ -54,8 +62,11 @@ struct AddMedicineView: View {
                     )
                     .padding()
             }
+            .alert(isPresented: $showingAlert) {
+                Alert(title: Text("약을 추가해주세요"))
+            }
         }
-        .navigationTitle("약 추가")
+        .navigationTitle("복용시간 추가")
     }
 }
 
