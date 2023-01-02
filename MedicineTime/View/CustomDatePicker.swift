@@ -5,12 +5,15 @@
 //  Created by 노건호 on 2022/12/14.
 //
 import SwiftUI
+import RealmSwift
 
 struct CustomDatePicker: View {
 
     @Binding var currentDate: Date
 
     @State var currentMonth: Int = 0
+    
+    @ObservedResults(MedicineData.self) var medicins
 
     var body: some View {
         VStack(spacing: 35) {
@@ -85,15 +88,12 @@ struct CustomDatePicker: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 20)
 
-                if let task = tasks.first(where: { task in
-                    return isSameDay(date1: task.taskDate, date2: currentDate)
-                }) {
-                    ForEach(task.task) { task in
+                if !todayMedicineData(date: currentDate).isEmpty {
+                    ForEach(todayMedicineData(date: currentDate)) { task in
                         VStack(alignment: .leading, spacing: 10) {
-                            Text(task.time
-                                .addingTimeInterval(CGFloat.random(in: 0...5000)), style: .time)
+                            Text(task.date, style: .time)
 
-                            Text(task.title)
+                            Text(task.name)
                                 .font(.title2.bold())
                         }
                         .padding(.vertical, 10)
@@ -105,7 +105,6 @@ struct CustomDatePicker: View {
                                 .cornerRadius(10)
                         )
                     }
-
                 } else {
                     Text("없음")
                 }
@@ -116,32 +115,49 @@ struct CustomDatePicker: View {
             currentDate = getCurrnetMonth()
         }
     }
+    
+    func todayMedicineData(date: Date) -> [MedicineData] {
+        return medicins.elements.filter { isSameDay(date1: date, date2: $0.date) }.sorted()
+    }
+    
+    func isInDatabase(date: Date) -> Bool {
+        var result = false
+        medicins.elements.forEach { medicine in
+            if isSameDay(date1: medicine.date, date2: date) {
+                result = true
+            }
+        }
+        return result
+    }
 
     @ViewBuilder
     func CardView(value: DateValue) -> some View {
         VStack {
             if value.day != -1 {
-
-                if let task = tasks.first(where: { task in
-                    return isSameDay(date1: task.taskDate, date2: value.date)
-                }) {
+                
+                // 선택한 날짜와 달력값이 일치한다면
+                if isSameDay(date1: value.date, date2: currentDate) {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : .primary)
+                        .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
 
                     Spacer()
 
                     Circle()
-                        .fill(isSameDay(date1: task.taskDate, date2: currentDate) ? .white : Color.pink)
+                        .fill(isInDatabase(date: value.date) ? .white : Color.pink)
                         .frame(width: 8, height: 8)
                 } else {
                     Text("\(value.day)")
                         .font(.title3.bold())
-                        .foregroundColor(isSameDay(date1: value.date, date2: currentDate) ? .white : .primary)
+                        .foregroundColor(.primary)
                         .frame(maxWidth: .infinity)
 
                     Spacer()
+
+                    Circle()
+                        .fill(isInDatabase(date: value.date) ? .pink : .white)
+                        .frame(width: 8, height: 8)
                 }
 
             }
@@ -198,11 +214,11 @@ struct CustomDatePicker: View {
     }
 }
 
-struct CustomDatePicker_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarView()
-    }
-}
+//struct CustomDatePicker_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CalendarView()
+//    }
+//}
 
 extension Date {
     func getAllDates() -> [Date] {

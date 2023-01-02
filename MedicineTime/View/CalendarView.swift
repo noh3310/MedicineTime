@@ -5,10 +5,17 @@
 //  Created by 노건호 on 2022/12/14.
 //
 import SwiftUI
+import RealmSwift
+import Combine
 
 struct CalendarView: View {
 
+//    @ObservedResults(MedicineData.self) var medicines
     @State var currentDate: Date = Date()
+    @ObservedObject var viewModel = HomeViewModel()
+    
+//    @ObservedRealmObject var dog: MedicineData
+    @ObservedResults(MedicineData.self) var dogs
 
     var body: some View {
 
@@ -24,7 +31,7 @@ struct CalendarView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 NavigationLink {
-                    AddMedicineView()
+                    AddMedicineView(homeViewModel: viewModel)
                 } label: {
                     Image(systemName: "plus")
                         .foregroundColor(Color.black)
