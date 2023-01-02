@@ -6,22 +6,24 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct AddMedicineView: View {
     
-    @ObservedObject var viewModel = SearchViewModel()
+    @ObservedObject var homeViewModel: HomeViewModel
+    @ObservedObject var searchViewModel = SearchViewModel()
     
     var body: some View {
         VStack {
             ScrollView {
                 VStack {
                     HStack {
-                        Text(viewModel.selectedMedicine?.itemName ?? "약 검색해서 추가하세요")
+                        Text(searchViewModel.selectedMedicine?.itemName ?? "약 검색해서 추가하세요")
                         
                         Spacer()
                         
                         NavigationLink {
-                            SearchMedicineView(viewModel: viewModel)
+                            SearchMedicineView(viewModel: searchViewModel)
                         } label: {
                             Text("검색")
                         }
@@ -31,16 +33,16 @@ struct AddMedicineView: View {
                     HStack {
                         Text("복용 시간")
                         Spacer()
-                        DatePicker("", selection: $viewModel.medicineTime)
+                        DatePicker("", selection: $searchViewModel.medicineTime)
                             .fixedSize()
                     }
                     .padding()
                 }
             }
             Button {
-                //
+                homeViewModel.addDate(medicineName: searchViewModel.selectedMedicine?.itemName ?? "정보 없음", date: searchViewModel.medicineTime)
             } label: {
-                Text("추가 or 수정")
+                Text("추가")
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding(.vertical, 10)
@@ -53,12 +55,12 @@ struct AddMedicineView: View {
                     .padding()
             }
         }
-        .navigationTitle("약 추가 or 수정")
+        .navigationTitle("약 추가")
     }
 }
 
-struct AddMedicineView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddMedicineView()
-    }
-}
+//struct AddMedicineView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddMedicineView()
+//    }
+//}

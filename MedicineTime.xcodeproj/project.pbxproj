@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D30942C42949F4EE005751BB /* SwiftUICalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D30942C32949F4EE005751BB /* SwiftUICalendar */; };
+		D301170129617F0A000EFF3F /* HomeVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301170029617F0A000EFF3F /* HomeVIewModel.swift */; };
+		D301170829618206000EFF3F /* MedicineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D301170729618206000EFF3F /* MedicineData.swift */; };
+		D301170B2961F779000EFF3F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D301170A2961F779000EFF3F /* Realm */; };
+		D301170D2961F779000EFF3F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D301170C2961F779000EFF3F /* RealmSwift */; };
 		D31373F1294B56CE00C519D0 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31373F0294B56CE00C519D0 /* CalendarView.swift */; };
 		D31373F3294B56E600C519D0 /* CustomDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31373F2294B56E600C519D0 /* CustomDatePicker.swift */; };
 		D31B23CC29472E2600B869A6 /* MedicineTimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B23CB29472E2600B869A6 /* MedicineTimeApp.swift */; };
@@ -27,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D301170029617F0A000EFF3F /* HomeVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVIewModel.swift; sourceTree = "<group>"; };
+		D301170729618206000EFF3F /* MedicineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineData.swift; sourceTree = "<group>"; };
 		D31373F0294B56CE00C519D0 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		D31373F2294B56E600C519D0 /* CustomDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePicker.swift; sourceTree = "<group>"; };
 		D31B23C829472E2600B869A6 /* MedicineTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MedicineTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D30942C42949F4EE005751BB /* SwiftUICalendar in Frameworks */,
+				D301170D2961F779000EFF3F /* RealmSwift in Frameworks */,
+				D301170B2961F779000EFF3F /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +124,7 @@
 				D3706986294B57BE00B137DD /* DateValue.swift */,
 				D3706988294B57CB00B137DD /* Task.swift */,
 				D370699C2953223900B137DD /* Medicine.swift */,
+				D301170729618206000EFF3F /* MedicineData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				D3706994294B80C200B137DD /* SearchViewModel.swift */,
+				D301170029617F0A000EFF3F /* HomeVIewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -156,7 +164,8 @@
 			);
 			name = MedicineTime;
 			packageProductDependencies = (
-				D30942C32949F4EE005751BB /* SwiftUICalendar */,
+				D301170A2961F779000EFF3F /* Realm */,
+				D301170C2961F779000EFF3F /* RealmSwift */,
 			);
 			productName = MedicineTime;
 			productReference = D31B23C829472E2600B869A6 /* MedicineTime.app */;
@@ -187,7 +196,7 @@
 			);
 			mainGroup = D31B23BF29472E2600B869A6;
 			packageReferences = (
-				D30942C22949F4EE005751BB /* XCRemoteSwiftPackageReference "SwiftUICalendar" */,
+				D30117092961F779000EFF3F /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = D31B23C929472E2600B869A6 /* Products */;
 			projectDirPath = "";
@@ -215,10 +224,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D301170129617F0A000EFF3F /* HomeVIewModel.swift in Sources */,
 				D31373F1294B56CE00C519D0 /* CalendarView.swift in Sources */,
 				D370698B294B59CD00B137DD /* AddMedicineView.swift in Sources */,
 				D31373F3294B56E600C519D0 /* CustomDatePicker.swift in Sources */,
 				D3706987294B57BE00B137DD /* DateValue.swift in Sources */,
+				D301170829618206000EFF3F /* MedicineData.swift in Sources */,
 				D370698D294B5C8400B137DD /* SearchBar.swift in Sources */,
 				D3706995294B80C200B137DD /* SearchViewModel.swift in Sources */,
 				D370699D2953223900B137DD /* Medicine.swift in Sources */,
@@ -439,21 +450,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		D30942C22949F4EE005751BB /* XCRemoteSwiftPackageReference "SwiftUICalendar" */ = {
+		D30117092961F779000EFF3F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/GGJJack/SwiftUICalendar";
+			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.6;
+				minimumVersion = 10.33.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		D30942C32949F4EE005751BB /* SwiftUICalendar */ = {
+		D301170A2961F779000EFF3F /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D30942C22949F4EE005751BB /* XCRemoteSwiftPackageReference "SwiftUICalendar" */;
-			productName = SwiftUICalendar;
+			package = D30117092961F779000EFF3F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		D301170C2961F779000EFF3F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D30117092961F779000EFF3F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
