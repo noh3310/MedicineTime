@@ -4,7 +4,7 @@
 //
 //  Created by 노건호 on 2022/12/14.
 //
-import SwiftUI
+import Foundation
 
 struct DateValue: Identifiable {
     var id = UUID().uuidString

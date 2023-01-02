@@ -12,14 +12,10 @@ struct SettingView: View {
     @State var setList = ["프로필", "설정"]
     
     var body: some View {
-        NavigationView {
-            List(setList, id: \.self) { title in
-                Text("\(title)")
-            }
-            .listStyle(.plain)
-            .navigationTitle("설정")
-            .navigationBarTitleDisplayMode(.inline)
+        List(setList, id: \.self) { title in
+            Text("\(title)")
         }
+        .listStyle(.plain)
     }
 }
 

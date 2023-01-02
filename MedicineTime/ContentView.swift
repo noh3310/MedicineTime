@@ -8,20 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    enum Tab: String {
+        case calendarView = "복용 내역"
+        case setting = "설정"
+    }
+        
+    @State private var selection: Tab = .calendarView
+    
     var body: some View {
-        TabView {
-            CalendarView()
-                .tabItem {
-                    Image(systemName: "calendar")
-                    Text("복용 내역")
-                }
-
-
-            SettingView()
-                .tabItem {
-                    Image(systemName: "gearshape")
-                    Text("설정")
-                }
+        NavigationView {
+            TabView(selection: $selection) {
+                CalendarView()
+                    .tabItem {
+                        Image(systemName: "calendar")
+                        Text(Tab.calendarView.rawValue)
+                    }
+                    .tag(Tab.calendarView)
+                
+                SettingView()
+                    .tabItem {
+                        Image(systemName: "gearshape")
+                        Text(Tab.setting.rawValue)
+                    }
+                    .tag(Tab.setting)
+            }
+            .navigationTitle(selection.rawValue)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

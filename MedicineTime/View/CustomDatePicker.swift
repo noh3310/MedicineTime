@@ -13,13 +13,12 @@ struct CustomDatePicker: View {
 
     @State var currentMonth: Int = 0
     
+    let days: [String] = ["일", "월", "화", "수", "목", "금", "토"]
+
     @ObservedResults(MedicineData.self) var medicins
 
     var body: some View {
         VStack(spacing: 35) {
-
-            //Days
-            let days: [String] = ["일", "월", "화", "수", "목", "금", "토"]
 
             HStack(spacing: 20) {
 
@@ -115,20 +114,6 @@ struct CustomDatePicker: View {
             currentDate = getCurrnetMonth()
         }
     }
-    
-    func todayMedicineData(date: Date) -> [MedicineData] {
-        return medicins.elements.filter { isSameDay(date1: date, date2: $0.date) }.sorted()
-    }
-    
-    func isInDatabase(date: Date) -> Bool {
-        var result = false
-        medicins.elements.forEach { medicine in
-            if isSameDay(date1: medicine.date, date2: date) {
-                result = true
-            }
-        }
-        return result
-    }
 
     @ViewBuilder
     func CardView(value: DateValue) -> some View {
@@ -165,6 +150,20 @@ struct CustomDatePicker: View {
         .padding(.vertical, 8)
         .frame(height: 60, alignment: .top)
     }
+    
+    func todayMedicineData(date: Date) -> [MedicineData] {
+        return medicins.elements.filter { isSameDay(date1: date, date2: $0.date) }.sorted()
+    }
+    
+    func isInDatabase(date: Date) -> Bool {
+        var result = false
+        medicins.elements.forEach { medicine in
+            if isSameDay(date1: medicine.date, date2: date) {
+                result = true
+            }
+        }
+        return result
+    }
 
     func isSameDay(date1: Date, date2: Date) -> Bool {
         let calendar = Calendar.current
@@ -180,7 +179,6 @@ struct CustomDatePicker: View {
 
         return date.components(separatedBy: " ")
     }
-
 
     func getCurrnetMonth() -> Date {
         let calendar = Calendar.current
