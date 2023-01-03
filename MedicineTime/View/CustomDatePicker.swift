@@ -117,34 +117,21 @@ struct CustomDatePicker: View {
 
     @ViewBuilder
     func CardView(value: DateValue) -> some View {
+        let sameDay = isSameDay(date1: value.date, date2: currentDate)
+        let inDatabase = isInDatabase(date: value.date)
+        
         VStack {
             if value.day != -1 {
+                Text("\(value.day)")
+                    .font(.title3.bold())
+                    .foregroundColor(sameDay ? .white : .primary)
+                    .frame(maxWidth: .infinity)
                 
-                // 선택한 날짜와 달력값이 일치한다면
-                if isSameDay(date1: value.date, date2: currentDate) {
-                    Text("\(value.day)")
-                        .font(.title3.bold())
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-
-                    Spacer()
-
-                    Circle()
-                        .fill(isInDatabase(date: value.date) ? .white : Color.pink)
-                        .frame(width: 8, height: 8)
-                } else {
-                    Text("\(value.day)")
-                        .font(.title3.bold())
-                        .foregroundColor(.primary)
-                        .frame(maxWidth: .infinity)
-
-                    Spacer()
-
-                    Circle()
-                        .fill(isInDatabase(date: value.date) ? .pink : .white)
-                        .frame(width: 8, height: 8)
-                }
-
+                Spacer()
+                
+                Circle()
+                    .fill((sameDay && inDatabase) || (!sameDay && !inDatabase) ? .white : Color.pink)
+                    .frame(width: 8, height: 8)
             }
         }
         .padding(.vertical, 8)
