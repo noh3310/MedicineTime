@@ -17,19 +17,20 @@ class SearchViewModel: ObservableObject {
     
     @Published var searchMedicineData: [Item] = []
     
-    @Published var searchText = "" {
-        didSet {
-            print("didSet")
-            BaseAPI.shared.getApi(self.searchText)
-                .sink { result in
-                    print(result)
-                } receiveValue: { items in
-//                    print("items = \(items)")
-                    DispatchQueue.main.async {
-                        self.searchMedicineData = items                        
-                    }
+    @Published var searchText = ""
+    
+    init() {
+        _searchText.projectedValue
+            .throttle(for: 1, scheduler: RunLoop.main, latest: false)
+            .filter { $0 != "" }
+            .flatMap { BaseAPI.shared.getApi($0) }
+            .sink { result in
+                print(result)
+            } receiveValue: { items in
+                DispatchQueue.main.async {
+                    self.searchMedicineData = items
                 }
-                .store(in: &cancellables)
-        }
+            }
+            .store(in: &cancellables)
     }
 }
