@@ -20,8 +20,8 @@ class SearchViewModel: ObservableObject {
     @Published var searchText = ""
     
     init() {
-        _searchText.projectedValue
-            .throttle(for: 1, scheduler: RunLoop.main, latest: false)
+        $searchText
+            .throttle(for: 0.5, scheduler: RunLoop.main, latest: true)
             .filter { $0 != "" }
             .flatMap { BaseAPI.shared.getApi($0) }
             .sink { result in
