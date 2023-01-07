@@ -40,3 +40,9 @@
             .map { $0.body?.items ?? [] }
             .eraseToAnyPublisher()
     ```
+
+## 실행화면
+
+|홈화면|복용시간 추가 화면|약 검색 화면|
+|-|-|-|
+|<img src="https://user-images.githubusercontent.com/26789278/211154583-e7fe0cd3-bd13-473d-aff9-46f1e3b15c94.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/211154594-5f0fdaab-8136-47b9-9632-c713d6d2f706.png"  width="200" height="410">|<img src="https://user-images.githubusercontent.com/26789278/211154612-f7b6c535-d583-4564-878a-def7f2e1bcae.png"  width="200" height="410">|
